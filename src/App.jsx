@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
@@ -8,7 +7,7 @@ const routes = [
     path: "/",
     element: <Home />
   },{
-    path: "/Details/:Title",
+    path: "/Details/:imdbID",
     element: <Details />
   }
 ]

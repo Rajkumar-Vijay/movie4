@@ -34,8 +34,8 @@ function Home() {
  
 
   return (
-    <div>
-      <div style={{display:"grid",placeItems: "center", alignItems:"center" }}>
+    <div style={{ margin: 20, color: 'white', minHeight: '100vh', minWidth: 'auto', backgroundColor: 'black', overflow: 'auto' }}>
+      <div style={{display:"grid",   placeItems: "center", alignItems:"center" }}>
         <h1>Search movie</h1>
         <form onSubmit={handleSearchSubmit} style={{padding:"20px"}}>
           <input
@@ -49,15 +49,17 @@ function Home() {
         {loading ? (
           <p>Loading movies...</p>
         ) : (
-          <div style={{display:"grid",placeItems: "center", alignItems:"center" }}>
+          <div style={{display:"grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr", gap:"40px",placeItems: "center", alignItems:"center" }}>
             {movies.length > 0 ? (
               movies.map((movie, index) => (
-                <div key={index}>
+                <div key={index} >
+                  <div style={{backgroundColor:"black", height: '100%' }}>
                   <Link to={`/Details/${movie.imdbID}`}>
-                    {movie.Title}
+                    <h2 style={{color:"white"}}>{movie.Title}</h2>
                   </Link>
                   <br/>
-                  <img  src={movie.Poster} alt={movie.Title} width="100" />
+                  <img  src={movie.Poster} alt={movie.Title} width="200" />
+                  </div>
                 </div>
               ))
             ) : (
